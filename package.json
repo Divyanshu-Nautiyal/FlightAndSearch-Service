@@ -7,11 +7,13 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon src/index"
   },
   "dependencies": {
     "body-parser": "^2.2.2",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "nodeman": "^1.1.2"
+    "nodeman": "^1.1.2",
+    "nodemon": "^3.1.11"
   }
 }
