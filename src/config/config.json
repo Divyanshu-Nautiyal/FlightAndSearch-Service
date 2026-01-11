@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "golu1234#",
+    "database": "Flight_Search_DB_Dev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
