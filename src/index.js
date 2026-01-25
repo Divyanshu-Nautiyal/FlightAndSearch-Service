@@ -12,7 +12,7 @@ const setupAndStartServer = async () => {
     
     app.listen(PORT, ()=>{
         console.log(`Server is running on port ${PORT}`);
-        const fcity = new newcity();
+        const fcity = new newcity(); //(line no. 4 (newcity))
         fcity.createCity({name: "Delhi"});
     })
 

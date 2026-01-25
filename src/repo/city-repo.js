@@ -1,25 +1,56 @@
+const { where } = require('sequelize');
 const { City } = require('../models/index');
 
 class CityRepository{
-    async createCity({ name }){
+    async createCity({ nameOfCity }){    //{name: "New Delhi"}
         try {
-            const city = await City.create({ name });
+            const city = new City.create({
+            name: nameOfCity      // name(in the sequelize model): name(passed in the function)
+        })
+        return city;
         } catch (error) {
-            console.error("sequelize createcity error");
-            console.error(error);
-            throw error;
+            console.log("something wrong in repo layer");
+            throw{error}
+        }
+        
+    }
+
+    async updateCity(data, cityId){
+        try {
+            const city = City.update(data, {
+                where: {
+                    id: cityId
+                }
+            })
+            return city;
+        } catch (error) {
+            console.log("something wrong in repo layer");
+            throw{error};
         }
     }
 
-    async deleteCity(cityid){
+
+    async deleteCity(cityId){
         try {
             await City.destroy({
                 where: {
-                    id: cityid
+                    id: cityId
                 }
-            });           
+            })
+            return true;
         } catch (error) {
-            throw {error};
+            console.log("something wrong in repo layer");
+            throw{error};
+        }
+    }
+
+    async getCity(cityId){
+        try {
+            await City.findbyPK(cityId)
+            return City;
+        } catch (error) {
+            console.log("something wrong in repo layer");
+            throw{error};
         }
     }
 }
