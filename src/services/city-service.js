@@ -2,10 +2,10 @@ const { CityRepository } = require("../repo/index");
 
 class CityService {
     constructor(){
-        this.cityRepository = new CityRepository();
+        this.cityRepository = new CityRepository();  //here we are creating a key value pair {cityRepository: CityRepository_object}
     }
 
-    async createCity(data){
+    async createCity(data){   //data is object
         try {
             const city = await this.cityRepository.createCity(data);
             return city;
